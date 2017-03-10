@@ -2,6 +2,6 @@
 return [
     'plugin' => [
         'name' => 'Imagens em Destaque',
-        'description' => 'Adiciona imagens em destaque para as Categorias do Rainlab Blog',
+        'description' => 'Adiciona imagens em destaque para Rainlab Pages',
     ],
 ];
