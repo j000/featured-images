@@ -1,7 +1,8 @@
 <?php
 return [
     'plugin' => [
-        'name' => 'Featured Images',
+        'name' => 'Pictures',
         'description' => 'Adds featured images to Rainlab Pages',
+        'tabname' => 'Pictures',
     ],
 ];

@@ -1,6 +1,9 @@
-<?php namespace Ribsousa\Featuredimages;
+<?php namespace J000\Featuredimages;
 
 use System\Classes\PluginBase;
+use Event;
+use Log;
+use Flash;
 //use RainLab\Blog\Controllers\Categories as CategoriesController;
 // RainLab\Pages\Controllers\Index
 //use RainLab\Blog\Models\Category as CategoryModel;
@@ -40,19 +43,24 @@ class Plugin extends PluginBase
         });
          */
         Event::listen('backend.form.extendFields', function ($widget) {
+            return;
 
             if (
                 !$widget->getController() instanceof \RainLab\Pages\Controllers\Index ||
-                !$widget->model instanceof \RainLab\Pages\Classes\MenuItem
+                !$widget->model instanceof \RainLab\Pages\Classes\Page
+                //!$widget->model instanceof \RainLab\Pages\Classes\MenuItem
             ) {
                 return;
             }
-
-            $widget->addTabFields([
+            Flash::error('Images working');
+            
+            $widget->addSecondaryTabFields([
                 'viewBag[featured]' => [
                     'label'     => 'j000.featuredimages::lang.plugin.name',
                     'type'      => 'mediafinder',
                     'mode'      => 'image',
+                    'size'      => 'small',
+                    'tab'       => 'j000.featuredimages::lang.plugin.tabname'
                 ]
             ]);
         });
